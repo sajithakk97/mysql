@@ -1,3 +1,4 @@
+use employees;
 create table officers(
 officer_id int not null auto_increment,
 officer_name varchar(100) not null,
@@ -6,6 +7,9 @@ primary key(officer_id));
 describe officers;
 insert into officers (officer_name,address)values('jisha','pkd'),
 ('manu','ktym');
+insert into officers (officer_name,address)values('james','tvm'),('john','ktym'),
+('james','mlpm'),('manu','pkd'),('sajitha','mlpm');
+
 select * from officers;
 update officers set officer_name='akhil'
 where officer_id=1;
@@ -82,8 +86,31 @@ create table OrderDetails(
 	quantity Integer Not Null,
 	price Decimal Not Null);
 
+select distinct address from officers where officer_id>5;
+select officer_id,officer_name from officers order by address;
+select officer_name,address from officers where address='tvm' or address='pkd' order by officer_id desc;
+select count(distinct address) from officers;
+select count(*) from officers where address='ktym';
+select count(*),address from officers group by address;
+create table employee(
+	emp_id integer primary key,
+    emp_name varchar(30)
+    );
+insert into employee values(1,'ajeet'),(2,'ayan'),(3,'milan'),(4,'ruchi');
+create table work(
+	working_date date,
+    working_hrs integer,
+	emp_id integer,
+    foreign key(emp_id) references employee(emp_id));
 
-
+insert into work values('2024-09-23',10,1),('2024-09-23',12,2),('2024-09-23',6,3),
+('2024-09-23',8,4),('2024-09-24',10,1),('2024-09-24',12,2),('2024-09-24',6,3),
+('2024-09-24',8,4);
+insert into work values('2024-09-25',14,1);
+insert into work values('2024-09-25',2,2);
+select emp_id ,sum(working_hrs) as "total_working_hrs" from work group by emp_id;
+select emp_id ,max(working_hrs) as "maximum_working_hrs" from work group by emp_id;
+select emp_id,min(working_hrs) as "minimum_working_hrs_" from work group by emp_id;
 
 
 
