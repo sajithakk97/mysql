@@ -112,6 +112,6 @@ select emp_id ,sum(working_hrs) as "total_working_hrs" from work group by emp_id
 select emp_id ,max(working_hrs) as "maximum_working_hrs" from work group by emp_id;
 select emp_id,min(working_hrs) as "minimum_working_hrs_" from work group by emp_id;
 
-
+select * from work;
 
     

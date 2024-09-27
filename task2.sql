@@ -61,3 +61,18 @@ select * from Customers order by name desc;
 select * from Orders where amount>500 order by customer_id desc;
 select * from Orders order by amount asc, customer_id desc;
 select * from Customers;
+select * from employees order by age limit 1 ;
+select * from employees order by age limit 2,4;
+select first_name,dept from employees where dept like 'a%';
+select * from employees;
+select first_name,last_name from employees where first_name like'j_h%';
+select * from employees where dept like '%a';
+select * from employees where last_name like 'J__%';
+select * from employees where last_name like 'L%' or first_name like '%y';
+select * from employees where last_name like 'g%a';
+select * from employees where  last_name not like '%a';
+select * from employEes where age in (30,27,37);
+select * from employees where age is null;
+select * from employees where dept is not null;
+select * from employees where age between 30 and 40;
+
